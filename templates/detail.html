@@ -32,7 +32,7 @@
             <a class="nav" href="/plants/{{plant._id}}/edit">Edit Plant</a><br><br>
         </section>
 
-        <form action="/plants/{{plant._id}}/harvest" method="POST">
+        <form action="/plants/{{plant._id}}/harvests" method="POST">
             <fieldset>
                 <legend>Harvested:</legend>
                 
@@ -58,8 +58,9 @@
             <h3>Harvest History</h3>
 
             <ul>
-                <li>5/15/2020: Harvested 3 tomatoes</li>
-                <li>5/18/2020: Harvested 2 tomatoes</li>
+                {% for item in harvests %}
+                <li>{{item.date}}: Harvested {{item.quantity}} </li>
+                {% endfor %}
             </ul>
         </section>
 
